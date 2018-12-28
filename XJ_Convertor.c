@@ -1,15 +1,16 @@
-#include<stdio.h>
-#include<stdlib.h
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//verification des parametres d'entrees
 int verifInputCommande(int argc,char const *argv[]){
 	int i;
 	for (i = 1; i < argc ; i++)
 	{
 		if(strcmp("-i",argv[i])==0){
             if(i+1<argc){
-            	if(strcmp("xml",argv[i+1])==0 ){
+            	if(strcmp("xml",argv[i+1])==0 ){//retourne 1 si c'est un fichier xml
             		return 1;
-            	}else if (strcmp("json",argv[i+1])==0){
+            	}else if (strcmp("json",argv[i+1])==0){//retourne 2 si c'est un fichier json
             		return 2;
             	}
             }
@@ -17,11 +18,12 @@ int verifInputCommande(int argc,char const *argv[]){
 	}
 	return 0;
 }
+//fonction pour verifier la trace
 int verifTrace(int argc,char const *argv[]){
 	int i;
 	for (i = 1; i < argc ; i++)
 	{
-		if(strcmp("-t",argv[i])==0){
+		if(strcmp("-t",argv[i])==0){//comparaison entre la iéme element et '-t'
             return 1;
 		}
 	}

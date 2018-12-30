@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include"xmlling.xml
 //verification des parametres d'entrees
 int verifInputCommande(int argc,char const *argv[]){
 	int i;
@@ -28,7 +29,8 @@ int verifTrace(int argc,char const *argv[]){
 		}
 	}
 	return 0;
-}
+}/*creation de la commande pour gerer les fichiers de
+sorties*/
 int verifOutputCommande(int argc,char const *argv[]){
 
 	int i;
@@ -63,10 +65,12 @@ int main(int argc,char const *argv[])
 {
 	
 	int failed = 0;
+	/*on verifie bien si le format xml ou json est bien formate*/
 	if(!verifInputCommande(argc,argv)){
 		printf("Syntax Error : Veuillez renseinger l'option -i [-i xml/json]\n");
 		failed=1;
 	}
+	/*on verifie si le fichier de sortie est en svg*/
 	if(!verifOutputCommande(argc,argv)){
 		printf("Syntax Error : Veuillez renseinger l'option -o [-o nomfichier.svg]\n");
 		failed=1;

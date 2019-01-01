@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include"xmlling.xml
+/*inclusion des bibliotheques pour la validation des fichiers en xml*/
+#include<libxml/parser.h>
+#include<libxml/xmlschema.h>
 //verification des parametres d'entrees
 int verifInputCommande(int argc,char const *argv[]){
 	int i;
@@ -61,6 +63,11 @@ char* getName(int argc,char const *argv[]){
 	}
 	return NULL;
 }
+enum{
+error_occured=-1;// une erreur est survenue lors de la validation
+not_valid=0;// le document n'est pas valide
+valid=1;//le document est valide 
+}  
 int main(int argc,char const *argv[])
 {
 	

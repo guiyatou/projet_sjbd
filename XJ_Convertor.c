@@ -9,15 +9,15 @@ int verifInputCommande(int argc,char const *argv[]){
 	int i;
 	for (i = 1; i < argc ; i++)
 	{
-		if(strcmp("-i",argv[i])==0){
-            if(i+1<argc){
-            	if(strcmp("xml",argv[i+1])==0 ){//retourne 1 si c'est un fichier xml
+	   if(strcmp("-i",argv[i])==0){
+              if(i+1<argc){
+            	   if(strcmp("xml",argv[i+1])==0 ){//retourne 1 si c'est un fichier xml
             		return 1;
-            	}else if (strcmp("json",argv[i+1])==0){//retourne 2 si c'est un fichier json
+            	   }else if (strcmp("json",argv[i+1])==0){//retourne 2 si c'est un fichier json
             		return 2;
-            	}
-            }
-		}
+            	   }
+               }
+	    }
 	}
 	return 0;
 }
@@ -39,18 +39,17 @@ int verifOutputCommande(int argc,char const *argv[]){
 	int t;
 	for (i = 1; i < argc ; i++)
 	{
-		if(strcmp("-o",argv[i])==0){
+	  if(strcmp("-o",argv[i])==0){
             if(i+1<argc){
             	t = strlen(argv[i+1]);
-            	if(t>4){
-            		
-            		if(argv[i+1][t-1]=='g' && argv[i+1][t-2]=='v' && argv[i+1][t-3]=='s' && argv[i+1][t-4]=='.'){
+            	 if(t>4){
+            	     if(argv[i+1][t-1]=='g' && argv[i+1][t-2]=='v' && argv[i+1][t-3]=='s' && argv[i+1][t-4]=='.'){
             			return 1;
             		}
-            	}
-            }
-		}
-	}
+            	  }
+             }
+	  }
+       }
 	return 0;
 }
 char* getName(int argc,char const *argv[]){
@@ -63,6 +62,28 @@ char* getName(int argc,char const *argv[]){
 	}
 	return NULL;
 }
+char* FichierInput(int argc,char const *argv[]){
+	int i;
+	for (i = 1; i < argc ; i++)
+	{
+		if(strcmp("-f",argv[i])==0){
+
+                   return (char *)argv[i+1];
+		}
+	}
+	return 0;
+}
+char* Input_http(int argc,char const *argv[]){
+	int i;
+	for (i = 1; i < argc ; i++)
+	{
+		if(strcmp("-h",argv[i])==0){
+		  }	return (char *)argv[i+1];
+		}
+	}
+	return 0 ;
+}
+
 enum{
 error_occured=-1;// une erreur est survenue lors de la validation
 not_valid=0;// le document n'est pas valide

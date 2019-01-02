@@ -67,7 +67,42 @@ enum{
 error_occured=-1;// une erreur est survenue lors de la validation
 not_valid=0;// le document n'est pas valide
 valid=1;//le document est valide 
-}  
+}
+/*fonction de la validation d'un arbre DOM a l'aide de xml schema*/
+	int validation_xmlschema(xmlDocPtr,doc const char *xml_schema , int afficher_erreurs);
+	int ret;
+	xmlschemaptr schema;
+	xmlschemavalidCtxtPtr vctxt;
+	xmlschemaparserCtxtPtr pctxt;
+	//ouverture du fichier xml schema
+	if((pctxt=xmlSchemaNewParserCtxt(xml_schema)==NULL){
+		return ERROR_OCCURED;
+	}
+	//chargement du contenu xml shema
+	shema= (pctxt);
+	xmlSchemaFreeParserCtxtPtr(pctxt);
+	if(shema==NULL){
+		return ERROR_OCCURED;
+	}
+	//creation du contexte de validation
+	if(vctx=xmlschemavalidCtxtPtr(shema)==NULL){
+		xmlSchemaFree(schema);
+		return ERROR_OCCURED;
+
+	}
+	//traitement des erreurs de validation
+	if(afficher_erreurs){
+		xmlschemaSetValidError(vctxt, (xmlSchemaValidityErrotFuncCtxtPtr) fprintf (xmlSchemaValidityWarningFuncCtxtPtr) fprintf (stderr));
+	
+	}
+       //validation
+	ret=(xmlschemavalidateDoc(vctxt doc))= 0? valid:not_valid);
+		//liberation de la memoire
+		xmlSchemaFree(shema);
+		xmlSchemaFreeValidCtxt(vctxt);
+		return ret;
+
+}
 int main(int argc,char const *argv[])
 {
 	

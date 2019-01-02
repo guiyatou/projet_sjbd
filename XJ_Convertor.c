@@ -149,5 +149,14 @@ int main(int argc,char const *argv[])
 			printf("Oups vous n'avez pas defini la trace !\n");
 		}
 	}
+	int not_valid=0;
+	if(!verifvalidation_shema( doc,xml_schema,afficher_erreurs ){
+		printf("syntax error: le document n'est pas valide \n");
+		not_valid=2;	
+	}
+	int ERROR_OCCURED=-1;
+	if(!verifvalidation_shema( doc,xml_schema,afficher_erreurs ){
+		printf("error: une erreur est survenue lors de la validation\n");
+		ERROR_OCCURED=2;	
 	return 0;
 }

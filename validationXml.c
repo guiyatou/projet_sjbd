@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <libxml/xmlmemory.h>
-#include <libxml/parser.h">
+#include <libxml/parser.h >
 int main()
 {    xmlDocPtr doc;
     xmlNodePtr racine;
@@ -11,11 +11,11 @@ int main()
     doc = xmlParseFile("fc.xml");
     if (doc == NULL)
     {
-        fprintf(stderr,"le document XML invalide \n");
+        fprintf(stderr,"le document XML est invalide \n");
 
     }
     else{
-        fprintf(stderr " le document XML valide\n");
+        fprintf(stderr " le document XML est valide\n");
     }
 
     return 0;

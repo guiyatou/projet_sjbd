@@ -1,0 +1,34 @@
+[
+    {
+        "Client": [
+            {
+                "id Client": "0015",
+                "Nom": "Thiam",
+                "Prenom": "Abrah",
+                "telephone": "778954565"
+            }
+        ],
+        "relations": {
+            "associations": [
+                {
+                "NomAutreEntite": "Commande",
+                "nomAssoc": "Commander"
+                }
+            ]
+        }
+    },
+    {
+        "Commande": [
+            {
+            "id Commande": "25h02",
+            "Date": "10/05/2019",
+            "mode payement": "par Carte"
+            }
+        ],
+        "relations": {
+            "associations": [
+
+            ]
+        }
+    }
+]
